@@ -216,7 +216,7 @@ public class MwatzTumblr extends PApplet {
 			this.url=url;
 			filename=url.substring(url.indexOf('/')+1);
 			page=Jsoup.connect(URLBASE+url).get();
-			saveHTML("old/"+filename,page.html());
+//			saveHTML("old/"+filename,page.html());
 			
 			
 			date=page.select("div.date").html();

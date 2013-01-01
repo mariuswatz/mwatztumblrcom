@@ -1,0 +1,199 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	line-height:140%;
+}
+
+p,body,li,a {
+		font: 17px/1.231 georgia,verdana,arial,clean,sans-serif;
+}
+
+p {margin-bottom:1em;}
+ul {margin-bottom:1em;}
+
+body {
+    background:#fff;
+	line-height: 1;
+}
+
+a,a:visited,a:link {color:#0099FF;}
+a:hover {background-color:#FFFF00;}
+
+#content, #header, #footer {
+	clear:both;
+	margin:0 auto;
+	width:800px;
+}
+
+#header,#footer {	color:#AAA;}
+#contentMain {float:left;
+    margin-top: 20px; 
+	width:600px;	
+}
+
+.date {
+	font-size:15px;
+	margin-top:0px;
+}
+
+
+#content p {
+	width:600px;
+}
+
+p.qq, blockquote, .quote-content {
+	padding-left:20px;
+	width:560px;
+    color: #666;
+}
+
+#content ol {
+    padding-left: 30px;
+}
+
+#content ol li,#content ol li p {
+	width:570px;
+}
+
+strong {
+	font-weight:bold;
+}
+
+ol, ul { list-style: none outside none; }
+ul { padding-left: 30px; }
+ul li {
+	list-style-type: square;
+	margin-bottom: 14px;
+}
+
+#contentMain img {
+    margin-bottom: 5px;
+    padding: 5px;
+    background: none repeat scroll 0 0 #EEEEEE;
+}
+
+#contentMain a img:focus, #contentMain a img:hover, #contentMain img a:active {
+    background: none repeat scroll 0 0 #0099FF;
+}
+
+#content ol li {
+    list-style-type: decimal;
+    margin-bottom: 14px;
+}
+
+#header {
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+#headerlink {width:150px; float:right; text-align:right; }
+#headerlink,#headerlink a,#headerinfo a {font-size:10px;}
+#headerinfo {float:left; font-size:10px;}
+
+#tagSidebar {
+	float:right;
+	width:120px;
+	margin-left:80px;
+	margin-top:20px;
+	text-align:right;
+}
+
+#tagSidebar ul {padding:0;}
+
+#tagSidebar ul li {
+	margin-bottom:2px;
+	list-style: none outside none;
+	font-family:Arial;
+	font-size:12px;
+	color:#AAA;
+}
+
+#tagSidebar p {
+	width:120px;
+	font-size:15px;
+	text-align:right;
+}
+
+#tagSidebar ul li a {
+	font-family:Arial;
+	font-size:12px;
+}
+
+#footer {
+	margin-top:60px;
+	margin-bottom:30px;
+	font-size:10px;
+}
+
+#about,#aboutShort {
+	 margin-top: 20px; 
+	 margin-bottom: 40px; 
+	 width:600px;
+}
+#about h3,#aboutShort h3 {margin-bottom:20px;}
+
+#wrapper {margin: 0;}
+
+#contentMain ul.index {	}
+
+#contentMain ul.index li {
+list-style: none outside none;
+	float:left; padding-right:10px;
+	margin-bottom:20px;
+}
+
+#content h3,#content h3 a {
+	width:600px;
+	 font-size: 20px;
+	 text-transform:uppercase;
+}
+
+.nav {
+	padding:30px 0;
+}
+
+.navPrev a,.navNext a 	{font-size:15px;}
+
+.navPrev {float:left; }
+
+.navNext {
+	float:right;
+	text-align:right;
+}
+.break {
+	visibility:hidden;
+	line-height:0px;
+	clear:both;
+}
+	
+
+ul.pageIndex {
+	margin-bottom:30px;
+}
+
+#content .indexInactive {
+	clear:both;
+	font-size:15px;
+	padding-top:30px;
+	margin-bottom:20px;
+}
+.pageMonth {
+	font-size:15px;
+	text-transform:uppercase;
+	margin-bottom:10px;
+}
+
+.indexDate {font-size:10px;}
