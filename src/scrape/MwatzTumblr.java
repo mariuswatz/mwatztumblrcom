@@ -22,7 +22,7 @@ public class MwatzTumblr extends PApplet {
 	TagMap tagmap;
 	Document baseDoc;
 	String aboutHtml,aboutHtmlShort;
-	boolean doAbout;
+	boolean doAbout,doAnalytics=true;
 	
 	
 	public void setup() {
@@ -68,7 +68,8 @@ public class MwatzTumblr extends PApplet {
 		
 		newpage.select("#contentMain").append(html);
 		newpage.select("#content").prepend(aboutHtmlShort);
-		saveStrings("html/index.html",new String[] {newpage.html()});
+		analyticsScript(newpage);
+		saveHTML("index.html",newpage.html());
 
 		
 		html="";
@@ -81,12 +82,14 @@ public class MwatzTumblr extends PApplet {
 		html=ul("pageIndex",ulText);
 		newpage=getBaseTemplate("Index - raw");
 		newpage.select("#contentMain").append(html);
-		saveStrings("html/index-raw.html",new String[] {newpage.html()});
+		analyticsScript(newpage);
+		saveHTML("index-raw.html",newpage.html());
 
 		
 		newpage=getBaseTemplate("About");
 		newpage.select("#content").prepend(aboutHtml);
-		saveStrings("html/index-about.html",new String[] {newpage.html()});		
+		analyticsScript(newpage);
+		saveHTML("index-about.html",newpage.html());
 		
 		Collections.sort(pages, new Comparator<Page>() {
 	    public int compare(Page a, Page b) {
@@ -100,8 +103,8 @@ public class MwatzTumblr extends PApplet {
 			html+="<li>"+href(pg.filename,pg.title)+"</li>\n";
 		}
 		newpage.select("#content").prepend(ul("pageIndex",html));
-		saveStrings("html/index-alpha.html",new String[] {newpage.html()});		
-		
+		analyticsScript(newpage);
+		saveHTML("index-alpha.html",newpage.html());	
 	}
 
 	private void findFiles() {
@@ -318,6 +321,7 @@ public class MwatzTumblr extends PApplet {
 			}
 			
 			navScript(newpage,prev,next);
+			analyticsScript(newpage);
 			
 			saveStrings("html/"+filename,new String[] {newpage.html()});
 		}
@@ -394,9 +398,9 @@ public class MwatzTumblr extends PApplet {
 			newpage.select("#contentMain").append("<h3 class='indexInactive'>Tags used only once</h3>");
 			inactivehtml="<ul class='index'>"+inactivehtml+"</ul>\n";			
 			newpage.select("#contentMain").append(inactivehtml);
-			saveStrings("html/tags-all.html",new String[] {newpage.html()});
-			
-			
+			analyticsScript(newpage);
+			saveHTML("tags-all.html",newpage.html());
+						
 			for(TagList l : sortedtags) if(l.pages.size()>1) {
 				newpage=getBaseTemplate("Tag: "+l.tagname);
 				contentHeader(newpage,"Archive: Tag '"+l.tagname+"'",null);
@@ -406,7 +410,8 @@ public class MwatzTumblr extends PApplet {
 				}
 				html+="</ul>\n";
 				newpage.select("#contentMain").append(html);
-				saveStrings("html/tag-"+l.shortname+".html",new String[] {newpage.html()});
+				analyticsScript(newpage);
+				saveHTML("tag-"+l.shortname+".html",newpage.html());
 			}
 		}
 		
@@ -481,10 +486,28 @@ public class MwatzTumblr extends PApplet {
 			"	 document.onkeydown=checkArrowKeys;\n";
 
 		script="<script type='text/javascript'>"+script+"</script>\n";
+		
 		newpage.select("body").append(script);
 		
 	}
 
+	public void analyticsScript(Document newpage) {
+		if(doAnalytics) {
+			String script=
+					"<script type=\"text/javascript\">\n"+
+					"if(window.location.href.indexOf(\"file:\")==-1) {\n"+
+					"var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"+
+					"document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"+
+					"</script>\n"+
+					"<script type=\"text/javascript\">\n"+
+					"var pageTracker = _gat._getTracker(\"UA-221130-4\");\n"+
+					"pageTracker._initData();\n"+
+					"pageTracker._trackPageview();\n"+
+					"}\n"+
+					"</script>";
+			newpage.select("body").append(script);
+		}
+	}
 	
 	private String span(String css, String html) {
 		return "<span class='"+css+"'>"+html+"</span>";
