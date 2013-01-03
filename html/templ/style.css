@@ -211,4 +211,6 @@ ul.pageIndex {
 	margin-bottom:10px;
 }
 
+#content .quote-source,#content .quote-source a { color: rgb(170, 170, 170); padding: 0px 0pt 24px; font-size: 10px; margin-top: 0px; }
+
 .indexDate {font-size:10px;}
