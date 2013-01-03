@@ -149,7 +149,8 @@ ul li {
 	height:50px;
 }
 
-#license a {font-size:10px;}
+
+#license a,#license p {font-size:10px;}
 
 
 #about,#aboutShort {
