@@ -11,23 +11,21 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
-	line-height:140%;
+line-height:140%;
+font-family:georgia,verdana,arial,clean,sans-serif;
 }
 
 p,body,li {
-		font: 17px/1.231 georgia,verdana,arial,clean,sans-serif;
+		font-size: 17px ;
 }
+
 
 p {margin-bottom:1em;}
-ul {margin-bottom:1em;}
+ul,ol {margin:1.5em 0 1.5em 0;}
 
-body {
-    background:#fff;
-	line-height: 1;
-}
+body {background:#fff;}
 
 a,a:visited,a:link {color:#0099FF;}
 a:hover {background-color:#FFFF00;}
@@ -50,7 +48,7 @@ a:hover {background-color:#FFFF00;}
 }
 
 
-#content p {
+p {
 	width:600px;
 }
 
@@ -60,23 +58,31 @@ p.qq, blockquote, .quote-content {
     color: #666;
 }
 
-#content ol {
-    padding-left: 30px;
+#content ol,#content ul {
+    padding-left: 40px;
 }
 
 #content ol li,#content ol li p {
-	width:570px;
+	width:560px;
 }
 
 strong {
 	font-weight:bold;
 }
 
-ol, ul { list-style: none outside none; }
-ul { padding-left: 30px; }
-ul li {
-	list-style-type: square;
+ol,ul {
+	list-style: none outside none; 
+	 padding-left: 30px; }
+}
+
+ul {	list-style-type: square;}
+
+ol li,ul li {
 	margin-bottom: 14px;
+}
+
+ol li {
+    list-style-type: decimal;
 }
 
 #contentMain img {
@@ -89,10 +95,6 @@ ul li {
     background: none repeat scroll 0 0 #0099FF;
 }
 
-#content ol li {
-    list-style-type: decimal;
-    margin-bottom: 14px;
-}
 
 #header {
 	margin-top:20px;
