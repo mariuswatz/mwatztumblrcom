@@ -23,7 +23,7 @@ p,body,li {
 
 
 p {margin-bottom:1em;}
-ul,ol {margin:1.5em 0 1.5em 0;}
+ul,ol {margin:1em 0 1.5em 0;}
 
 body {background:#fff;}
 
@@ -78,7 +78,7 @@ ol,ul {
 ul {	list-style-type: square;}
 
 ol li,ul li {
-	margin-bottom: 14px;
+	margin-bottom: 0.75em;
 }
 
 ol li {
@@ -197,7 +197,8 @@ list-style: none outside none;
 }
 	
 
-ul.pageIndex {
+#content ul.pageIndex {
+	padding-left:30px;
 	margin-bottom:30px;
 }
 
@@ -209,8 +210,7 @@ ul.pageIndex {
 }
 .pageMonth {
 	font-size:15px;
-	text-transform:uppercase;
-	margin-bottom:10px;
+	text-transform:uppercase;	
 }
 
 #content .quote-source,#content .quote-source a { color: rgb(170, 170, 170); padding: 0px 0pt 24px; font-size: 10px; margin-top: 0px; }
