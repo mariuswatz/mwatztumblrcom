@@ -1,3 +1,36 @@
+/*
+ * MwatzTumblr.java - Marius Watz, January 2013
+ * https://github.com/mariuswatz/mwatztumblrcom
+ * 
+ * Code used to reformat the original HTML scrape of mwatz.tumblr.com
+ * for publishing as a proper archive. For purposes of convenience I am
+ * using Processing as application framework, although I barely use any
+ * of its core functions. All parsing and generating of HTML is done 
+ * using JSoup (http://jsoup.org/)  
+ * 
+ * This code written as an ad hoc hack. It's messy and full of redunancies,
+ * but I'm providing it for reference anyway. A close reading might provide 
+ * a few insights into how JSoup (which is a very a powerful tool) can scrape 
+ * HTML and extract desired sections, from which new documents can be created
+ * based on a custom HTML template.
+ * 
+ * I used a local web server to provide access to the original scraped HTML
+ * as produced by the Firefox Scrapbook extension (hence the use of
+ * URLBASE="http://127.0.0.1/tumblr/".) All generated files are initialized
+ * using the template 'html/templ/templ-page.html" and content is injected using
+ * org.jsoup.nodes.Document.append() etc. A ZIP of the original scrape can be
+ * found at the GitHub link above. 
+ * 
+ * Running this code as-is will be difficult without replicating my local setup,
+ * including the local server URL. I recommend using it only as a reference,
+ * If I had a clearer strategy from the start I would have written this 
+ * very differently. 
+ *  
+ * Licensed under CC license
+ * (CC BY-NC-ND 3.0) Attribution-NonCommercial-NoDerivs 3.0 Unported 
+ * http://creativecommons.org/licenses/by-nc-nd/3.0/
+ */
+
 package scrape;
 
 import java.awt.image.BufferedImage;
@@ -491,21 +524,12 @@ public class MwatzTumblr extends PApplet {
 		
 	}
 
-	public void analyticsScript(Document newpage) {
+	public void analyticsScript(Document newpage) {		
 		if(doAnalytics) {
-			String script=
-					"<script type=\"text/javascript\">\n"+
-					"if(window.location.href.indexOf(\"file:\")==-1) {\n"+
-					"var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"+
-					"document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"+
-					"</script>\n"+
-					"<script type=\"text/javascript\">\n"+
-					"var pageTracker = _gat._getTracker(\"UA-221130-4\");\n"+
-					"pageTracker._initData();\n"+
-					"pageTracker._trackPageview();\n"+
-					"}\n"+
-					"</script>";
-			newpage.select("body").append(script);
+			String script[]=loadStrings("html/templ/analytics.js");
+			String theScript="";
+			for(int i=0; i<script.length; i++) theScript+=script[i]+"\n";
+			newpage.select("body").append(theScript);
 		}
 	}
 	

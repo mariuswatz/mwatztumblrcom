@@ -51,6 +51,15 @@
    <div id="footer">
     Archive of mwatz.tumblr.com (Oct 2011-July 2012)
    </div> 
+   <div id="license"> 
+    <div style="float: left; width:100px;">
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+    </div> 
+    <div style="float:left; width:500px;"> 
+     <p><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><a href="http://mariuswatz.com/mwatztumblrcom">Blog archive of mwatz.tumblr.com</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mariuswatz.com/mwatztumblrcom" property="cc:attributionName" rel="cc:attributionURL">Marius Watz</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.</p> 
+     <p>Please contact author for permission to publish any of this content.</p> 
+    </div> 
+   </div> 
   </div>
   <!-- wrapper -->   
   <script type="text/javascript">		function checkArrowKeys(e){
@@ -65,15 +74,25 @@ if(arrs[key] && arrs[key]==2) window.location.href='this-shot-of-john-powers-ins
 	 document.onkeydown=checkArrowKeys;
 </script> 
   <script type="text/javascript">
-if(window.location.href.indexOf("file:")==-1) {
+// Google Analytics - only supposed to track if URL isn't 'file://' etc
+var doTrack=1;
+if(window.location.href.indexOf('file:')>-1) doTrack=-1;
+//alert("doTrack "+doTrack+" "+window.location.href);
+
+if(doTrack>0) {
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+var gaString=unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E");
+document.write(gaString);
+//alert(gaString);
+}
 </script> 
   <script type="text/javascript">
+if(doTrack>0) {
+//alert("tracking");
 var pageTracker = _gat._getTracker("UA-221130-4");
 pageTracker._initData();
 pageTracker._trackPageview();
 }
-</script>
+</script> 
  </body>
 </html>

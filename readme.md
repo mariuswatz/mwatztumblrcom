@@ -6,3 +6,8 @@ Archive of the (defunct) blog "Thoughts on Code and Art" (mwatz.tumblr.com, acti
 Open htlm/index.html in a browser to read the blog archive. This can also be accessed at http://mariuswatz.com/mwatztumblrcom. If you find broken links or obviously borked formatting please let me know by [submitting an issue](https://github.com/mariuswatz/mwatztumblrcom/issues).
 
 'mwatz.tumblr.com - original.zip' contains the original HTML, scraped from Tumblr using the Firefox Scrapbook extension. This includes redundant files and broken links.
+
+
+Licensed under CC license
+(CC BY-NC-ND 3.0) Attribution-NonCommercial-NoDerivs 3.0 Unported 
+http://creativecommons.org/licenses/by-nc-nd/3.0/
